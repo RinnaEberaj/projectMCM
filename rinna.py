@@ -8,7 +8,7 @@ import pandas as pd
 app = Dash(__name__)
 server = app.server
 
-app.title = "MCM7003 Data Visualization Interactive Demo"
+app.title = "MCM7003 Data Visualization Interactive Project"
 
 # Specify the encoding as 'ISO-8859-1' when reading the CSV file
 csv_file_path = "https://raw.githubusercontent.com/RinnaEberaj/assign3MCMRinna/main/Global%20YouTube%20Statistics.csv"
@@ -63,6 +63,7 @@ top_youtuber_options = [
     Output('graph-output-2', 'figure'),
     Input('top-youtuber-dropdown', 'value')
 )
+
 def update_top_youtuber_graph(selected_value):
     # Filter the DataFrame based on the selected number of top YouTubers
     df_filtered = df_views30[df_views30["Rank"] <= selected_value].sort_values(by=["Rank"])
@@ -154,8 +155,8 @@ app.layout = html.Div(
                     id='top-youtuber-dropdown',
                     options=top_youtuber_options,
                     value=5,  # Default value
-                ),
-                dcc.Graph(id='graph-output-2', figure=fig2),
+                )
+                #dcc.Graph(id='graph-output-2', figure=fig2),
             ]),
             
             # Tab for the pie chart or top 3 countries pie chart
